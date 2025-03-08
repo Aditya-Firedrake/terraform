@@ -1,0 +1,28 @@
+provider "aws" {
+  region     = "us-east-1"
+  access_key = "access_key"
+  secret_key = "secret_key"
+}
+
+variable "image" {
+  default = "ami-05b10e08d247fb927"
+}
+
+variable "instance" {
+  default = "t2.micro"
+}
+
+variable "tags" {
+  default = "web"
+}
+
+resource "aws_instance" "web-server" {
+  ami           = var.image 
+  instance_type = var.instance
+  count = 1
+
+   tags = {
+    Name = var.tags
+  }
+
+}
