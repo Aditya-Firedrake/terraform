@@ -32,7 +32,7 @@ resource "aws_instance" "web-server" {
 }
 
 ----------------------------------
-# if var.if define variable like this (not define parameter then it will ask in console at run time)
+# if var.tf define variable like this (not define parameter then it will ask in console at run time)
 
   variable "image" {
 }
