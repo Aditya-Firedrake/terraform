@@ -1,0 +1,44 @@
+#var.tf this file should be in same folder where terraform.tf available 
+
+
+variable "image" {
+  default = "ami-05b10e08d247fb927"
+}
+
+variable "instance" {
+  default = "t2.micro"
+}
+
+variable "tags" {
+  default = "web"
+}
+
+----------------------------------------
+#terraform.tf
+provider "aws" {
+  region     = "us-east-1"
+  access_key = ""
+  secret_key = ""
+}
+resource "aws_instance" "web-server" {
+  ami           = var.image 
+  instance_type = var.instance
+  count = 1
+
+   tags = {
+    Name = var.tags
+  }
+
+}
+
+----------------------------------
+# if var.if define variable like this (not define parameter then it will ask in console at run time)
+
+  variable "image" {
+}
+
+variable "instance" {
+}
+
+variable "tags" {
+}
