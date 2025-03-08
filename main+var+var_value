@@ -33,7 +33,7 @@ variable "tags" {
 
 ------------------------------------------
 #value (terraform.tfvars{default name cannot change}) override the default value with current value. If the name is different the need to run with {terraform plan -ver-file="demo.tfvars"} then demo.tfvars file pickup
-
+or we can rename tfvar file with demo.auto.tfvars then it will pickup variable value file.
 instance = "t2.micro"
 image = "ami-05b10e08d247fb927"
 tags = "web"
