@@ -1,0 +1,43 @@
+#main file (terraform.tf)
+
+provider "aws" {
+  region     = "us-east-1"
+  access_key = ""
+  secret_key = ""
+}
+
+
+
+resource "aws_instance" "web-server" {
+  ami           = var.image 
+  instance_type = var.instance
+  count = 1
+
+   tags = {
+    Name = var.tags
+  }
+
+}
+
+---------------------------------------------
+#variable.tf (define the veriable name)
+
+variable "image" {
+  default = "ami-05b10e08d247fb927"
+}
+
+variable "instance" {
+  default = "t2.micro"
+}
+
+variable "tags" {
+ default = "web"
+}
+
+------------------------------------------
+#value (terraform.tfvars) override the default value with current value
+
+instance = "t2.micro"
+image = "ami-05b10e08d247fb927"
+tags = "web"
+
