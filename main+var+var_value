@@ -32,7 +32,7 @@ variable "tags" {
 }
 
 ------------------------------------------
-#value (terraform.tfvars) override the default value with current value
+#value (terraform.tfvars{default name cannot change}) override the default value with current value
 
 instance = "t2.micro"
 image = "ami-05b10e08d247fb927"
